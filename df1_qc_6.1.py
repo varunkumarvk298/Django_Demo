@@ -39,7 +39,7 @@ obj = client.get_object(
     Key=  'MyFirstProject/medical_hospital_claim.csv',
 )
 
-#connecting to the aws s3
+#connecting to the aws s3 ====>
 dfP = pd.read_csv(obj['Body'])
 print(dfP.head())
 ds = spark.createDataFrame(dfP)
