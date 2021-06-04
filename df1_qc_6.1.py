@@ -39,7 +39,7 @@ obj = client.get_object(
     Key=  'MyFirstProject/medical_hospital_claim.csv',
 )
 
-
+#connecting to the aws s3
 dfP = pd.read_csv(obj['Body'])
 print(dfP.head())
 ds = spark.createDataFrame(dfP)
@@ -53,3 +53,7 @@ ds = ds.groupBy("date_of_service",'extract_date','create_ts').agg(
 
 ds.show()
 print(ds.count())
+print(ds.count())
+totalrecords = ds.count()
+ds = ds.withColumn("totalrecords", F.lit(totalrecords))
+ds.show()
