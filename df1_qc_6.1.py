@@ -35,8 +35,8 @@ resource_s3 = boto3.resource(
 
 # Create the S3 object
 obj = client.get_object(
-    Bucket= 'myfirstbucketqwerty',
-    Key=  'MyFirstProject/medical_hospital_claim.csv',
+    Bucket= 'dev-mor-datalake-v2',
+    Key=  'sliver_df1_/medical_hospital_claim_header/extract_date=2021-05-07/year=2021/month=6/day=1/medical_hospital_claim.csv', # change the file
 )
 
 #connecting to the aws s3 ====>
